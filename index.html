@@ -4,15 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MLC Soundboard</title>
-    <link rel="icon" type="image/png" href="1024x1024.png">
-    <link rel="apple-touch-icon" href="1024x1024.png">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="description" content="Mountain Lair Camp Soundboard - Play camp sounds anytime, anywhere">
+    <meta name="theme-color" content="#FFD700">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="MLC Soundboard">
+    
+    <!-- Icons -->
+    <link rel="icon" type="image/png" href="images/mlc-logo.png">
+    <link rel="apple-touch-icon" href="images/mlc-logo.png">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div class="container">
         <header>
             <div class="header-content">
-                <img src="1024x1024.png" alt="MLC Logo" class="logo">
+                <img src="images/mlc-logo.png" alt="MLC Logo" class="logo">
                 <h1>MLC Soundboard</h1>
             </div>
             <button id="sync-btn" class="sync-btn" title="Sync sounds">
@@ -41,5 +55,19 @@
     </div>
 
     <script src="js/soundboard.js"></script>
+    <script>
+        // Register service worker for PWA functionality
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful:', registration);
+                    })
+                    .catch(error => {
+                        console.error('ServiceWorker registration failed:', error);
+                    });
+            });
+        }
+    </script>
 </body>
 </html>
