@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLC Soundboard</title>
+    <link rel="icon" type="image/png" href="1024x1024.png">
+    <link rel="apple-touch-icon" href="1024x1024.png">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <img src="1024x1024.png" alt="MLC Logo" class="logo">
+                <h1>MLC Soundboard</h1>
+            </div>
+            <button id="sync-btn" class="sync-btn" title="Sync sounds">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="23 4 23 10 17 10"></polyline>
+                    <polyline points="1 20 1 14 7 14"></polyline>
+                    <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                </svg>
+            </button>
+        </header>
+
+        <div id="loading-container" class="loading-container" style="display: none;">
+            <div class="spinner"></div>
+            <div id="sync-progress" class="sync-progress"></div>
+        </div>
+
+        <div id="error-container" class="error-container" style="display: none;">
+            <span id="error-message"></span>
+        </div>
+
+        <main>
+            <div id="sounds-list" class="sounds-list">
+                <!-- Sound items will be dynamically inserted here -->
+            </div>
+        </main>
+    </div>
+
+    <script src="js/soundboard.js"></script>
+</body>
+</html>
