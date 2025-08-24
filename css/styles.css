@@ -4,29 +4,41 @@
     box-sizing: border-box;
 }
 
+:root {
+    --primary-yellow: #FFD700;
+    --hover-yellow: #FFC700;
+    --active-yellow: #FFB700;
+    --bg-black: #000000;
+    --bg-dark: #121212;
+    --bg-lighter: #282828;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
+    background-color: #000000;
+    color: #ffffff;
     line-height: 1.6;
 }
 
 .container {
     max-width: 600px;
     margin: 0 auto;
-    background-color: white;
+    background-color: #121212;
     min-height: 100vh;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 header {
-    background-color: #24BBFF;
-    color: white;
+    background-color: #000000;
+    color: #FFD700;
     padding: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid #282828;
 }
 
 .header-content {
@@ -50,22 +62,24 @@ header h1 {
 .sync-btn {
     background: none;
     border: none;
-    color: white;
+    color: #FFD700;
     cursor: pointer;
     padding: 0.5rem;
     border-radius: 50%;
-    transition: background-color 0.2s;
+    transition: all 0.2s;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .sync-btn:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 215, 0, 0.1);
+    transform: scale(1.05);
 }
 
 .sync-btn:active {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 215, 0, 0.2);
+    transform: scale(0.95);
 }
 
 .sync-btn svg {
@@ -79,8 +93,8 @@ header h1 {
 }
 
 .spinner {
-    border: 3px solid #f3f3f3;
-    border-top: 3px solid #24BBFF;
+    border: 3px solid #282828;
+    border-top: 3px solid #FFD700;
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -94,16 +108,17 @@ header h1 {
 }
 
 .sync-progress {
-    color: #666;
+    color: #b3b3b3;
     font-size: 0.9rem;
 }
 
 .error-container {
-    background-color: #ff4444;
+    background-color: #8B0000;
     color: white;
     padding: 1rem;
     text-align: center;
     font-size: 0.9rem;
+    border-left: 4px solid #ff0000;
 }
 
 .sounds-list {
@@ -115,17 +130,28 @@ header h1 {
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    border-bottom: 1px solid #eee;
-    transition: background-color 0.2s;
+    border-bottom: 1px solid #282828;
+    transition: all 0.2s;
     cursor: pointer;
+    position: relative;
 }
 
 .sound-item:hover {
-    background-color: #f9f9f9;
+    background-color: rgba(255, 215, 0, 0.05);
 }
 
 .sound-item.playing {
-    background-color: #e3f2fd;
+    background-color: rgba(255, 215, 0, 0.1);
+}
+
+.sound-item.playing::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: #FFD700;
 }
 
 .sound-info {
@@ -136,38 +162,60 @@ header h1 {
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 0.25rem;
-    color: #333;
+    color: #ffffff;
 }
 
 .sound-tags {
     font-size: 0.875rem;
-    color: #666;
+    color: #b3b3b3;
 }
 
 .play-btn {
-    background: none;
+    background: #FFD700;
     border: none;
-    color: #24BBFF;
+    color: #000000;
     cursor: pointer;
     padding: 0.5rem;
     border-radius: 50%;
-    transition: background-color 0.2s;
+    transition: all 0.2s;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 40px;
+    height: 40px;
 }
 
 .play-btn:hover {
-    background-color: rgba(36, 187, 255, 0.1);
+    background-color: #FFC700;
+    transform: scale(1.1);
 }
 
 .play-btn:active {
-    background-color: rgba(36, 187, 255, 0.2);
+    background-color: #FFB700;
+    transform: scale(0.95);
 }
 
 .play-icon, .pause-icon {
     width: 24px;
     height: 24px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #282828;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #404040;
 }
 
 /* Mobile responsiveness */
