@@ -1,10 +1,10 @@
 const CACHE_NAME = 'mlc-soundboard-v1';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/css/styles.css',
-  '/js/soundboard.js',
-  '/images/mlc-logo.png'
+  './',
+  './index.html',
+  './css/styles.css',
+  './js/soundboard.js',
+  './images/mlc-logo.png'
 ];
 
 // Install event - cache essential files
